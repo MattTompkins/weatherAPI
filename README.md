@@ -1,64 +1,38 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# Reason Digital Weather API
+ This repository contains a technical tasks as part of the recruitment process for Reason Digital. Features include:
+- Build on Laravel
+- Fetches current weather from Open Weather API
+- Fetches weather forecast in daily or hourly format from Open Meteo API
+- Accepts postcodes and converts to Longitude and Latitude to query above mentioned APIs
+- Secured endpoints with email & password login
+- Custom JSON exceptions
+- JWT Tokens for authentication
+- HAL Links
+- Some PHP Unit Tests
 
-<p align="center">
-<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+## Test this API
 
-## About Laravel
+A test version of this API can be accessed at the following web address:
+[weatherapi.mattompkins.co.uk](weatherapi.mattompkins.co.uk)
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+Before accessing most endpoints, **you will need to login ** via the login endpoint - this can be done with example credentials (below):
+Email: test@test.com
+Password: reasonDigital
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+**Note: When communicating with these endpoints, you must set the following header:**
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+Accept: application/json
 
-## Learning Laravel
+Additionally, if accessing the current or forecasted weather endpoints, you must set a bearer authorisation token.
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+## Endpoints
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 2000 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+There are a few different endpoints to interact with using an application such as Postman:
 
-## Laravel Sponsors
-
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
-
-### Premium Partners
-
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[OP.GG](https://op.gg)**
-- **[WebReinvent](https://webreinvent.com/?utm_source=laravel&utm_medium=github&utm_campaign=patreon-sponsors)**
-- **[Lendio](https://lendio.com)**
-
-## Contributing
-
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
-
-## Code of Conduct
-
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
-
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
-
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+- [weatherapi.mattompkins.co.uk/api/login](weatherapi.mattompkins.co.uk/api/login)
+- [weatherapi.mattompkins.co.uk/api/logout](weatherapi.mattompkins.co.uk/api/logout)
+- [weatherapi.mattompkins.co.uk/api/current/{POSTCODE} ](weatherapi.mattompkins.co.uk/api/current/{POSTCODE} )
+- [weatherapi.mattompkins.co.uk/api/forecast/{POSTCODE}/ ](weatherapi.mattompkins.co.uk/api/forecast/{POSTCODE}/ )  
+  - Note: by default, this will return a daily forecast
+- [weatherapi.mattompkins.co.uk/api/forecast/{POSTCODE}/daily](weatherapi.mattompkins.co.uk/api/forecast/{POSTCODE}/daily)
+- [weatherapi.mattompkins.co.uk/api/forecast/{POSTCODE}/hourly](weatherapi.mattompkins.co.uk/api/forecast/{POSTCODE}/hourly)
